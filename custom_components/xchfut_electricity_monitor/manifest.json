@@ -1,0 +1,15 @@
+{
+  "domain": "xchfut_electricity_monitor",
+  "name": "XCHFUT Electricity Monitor",
+  "config_flow": true,
+  "documentation": "",
+  "requirements": ["aiohttp"],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@mxi-box"
+  ],
+  "iot_class": "local_polling"
+}
