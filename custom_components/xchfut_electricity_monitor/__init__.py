@@ -15,7 +15,6 @@ PLATFORMS: list[str] = ["sensor"]
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up xchfut_electricity_monitor from a config entry."""
-    logging.getLogger(__name__).info("SETUPENTRY")
     hass.config_entries.async_setup_platforms(entry, PLATFORMS)
     return True
 

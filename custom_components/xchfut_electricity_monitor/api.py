@@ -76,24 +76,25 @@ class XCHFUTApi() :
                     response = await r.json(content_type=None)
                     code = response['query_elec_roominfo']['retcode']
                     msg = response['query_elec_roominfo']['errmsg']
-                except Exception:
-                    raise FetchFail()
+                except Exception as e:
+                    raise FetchFail(e)
 
                 if code == '0':
                     StrResult = balance_matcher.search(msg).group()
                     return StrResult
                 else:
-                    raise FetchFail()
+                    raise FetchFail(msg)
 
-        except Exception:
-            raise ConnectFail()
+        except FetchFail as e:
+            raise e
+        
+        except Exception as e:
+            raise ConnectFail(e)
 
 
-class ConnectFail(HomeAssistantError) :
-    pass
+class ConnectFail(HomeAssistantError) : ...
 
-class FetchFail(HomeAssistantError) :
-    pass
+class FetchFail(HomeAssistantError) : ...
 
 
 api = XCHFUTApi(API_ACCOUNT_ID, API_SERVER_URL)

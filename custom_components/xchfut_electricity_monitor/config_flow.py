@@ -11,11 +11,8 @@ from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
 
-from .const import DOMAIN
-from .const import CONF_ROOMID
-from .api import ConnectFail
-from .api import FetchFail
-from .api import api
+from .const import DOMAIN, CONF_ROOMID
+from .api import ConnectFail, FetchFail, api
 
 _LOGGER = logging.getLogger(__name__)
 
